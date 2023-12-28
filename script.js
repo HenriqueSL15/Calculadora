@@ -1,6 +1,11 @@
 function insert(num){
   var resultado = document.getElementById('result').innerHTML;
-  document.getElementById('result').innerHTML = resultado + num;
+  if(resultado.length < 16){
+    document.getElementById('result').innerHTML = resultado + num;
+  }else{
+    alert("O máximo é igual a 15 dígitos");
+  }
+  
 }
 
 function clean(){
