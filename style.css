@@ -30,6 +30,7 @@
   background-color: rgb(31, 31, 31);
   border: none;
   color: white;
+  border-radius: 5px;
 }
 
 .button:hover{

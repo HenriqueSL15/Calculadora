@@ -1,27 +1,73 @@
+//Função para inserir valores no 'result'
 function insert(num){
   var resultado = document.getElementById('result').innerHTML;
+  //Escrevendo o valor de acordo com a quantia de caracteres restantes
   if(resultado.length < 15){
     document.getElementById('result').innerHTML = resultado + num;
-  }else{
-    alert("O máximo é igual a 15 dígitos");
+  }
+
+  //Contador de caracteres
+  document.getElementById('counter').innerHTML = document.getElementById('result').innerHTML.length;
+
+  //Alteração de tamanho da fonte para melhor visualização
+  if(resultado.length > 8){
+    document.getElementById('result').style = "font-size:24px"
   }
   
+  /*
+  else{
+    alert("O máximo é igual a 14 dígitos");
+  }
+  */
 }
 
+
+
+//Função que limpa todos os valores
 function clean(){
+  //Reseta o valor do 'result' e o tamanho para 25px 
   document.getElementById('result').innerHTML = "";
+  document.getElementById('result').style = "font-size:25px";
+  document.getElementById('counter').innerHTML = document.getElementById('result').innerHTML.length;
 }
 
+
+
+//Função que limpa o último algarismo do 'result'
 function back(){
   var resultado = document.getElementById('result').innerHTML;
   document.getElementById('result').innerHTML = resultado.substring(0,resultado.length-1)
+
+  //Verifica a quantia de caracteres e ajusta o tamanho da fonte
+  if(document.getElementById('result').innerHTML.length < 16){
+    document.getElementById('result').style = "font-size:25px"
+  }
+  document.getElementById('counter').innerHTML = document.getElementById('result').innerHTML.length;
 }
 
+
+
+//Função que faz as operações de soma/divisão/subtração e multiplicação
 function calculate(){
   var resultado = document.getElementById('result').innerHTML;
+  document.getElementById('result').innerHTML = eval(resultado);
+  //Verifica se existe algum valor no 'result'
   if(resultado){
-    document.getElementById('result').innerHTML = eval(resultado);
+    //Ajusta o tamanho se necessário
+    if(document.getElementById('result').innerHTML.length > 8){
+      document.getElementById('result').style = "font-size:24px"
+    }
+
+    //Verifica se o número é decimal ou não
+    /*
+    if(document.getElementById('result').innerHTML / 2 != 0){
+      if(document.getElementById('result').innerHTML.length > 8){
+        document.getElementById('result').innerHTML = eval(resultado).substring(0,13)
+      }
+    }
+    */
   }else{
     document.getElementById('result').innerHTML = "Nada...";
   }
+  document.getElementById('counter').innerHTML = document.getElementById('result').innerHTML.length;
 }
