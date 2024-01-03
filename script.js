@@ -49,25 +49,22 @@ function back(){
 
 //Função que faz as operações de soma/divisão/subtração e multiplicação
 function calculate(){
-  var resultado = document.getElementById('result').innerHTML;
-  document.getElementById('result').innerHTML = eval(resultado);
+  var valor = document.getElementById('result').innerHTML;
+  var resultado = eval(valor);
+  var arredondando = 14 - Math.floor (Math.log10 (resultado)) - 2;
+  var novoResultado = resultado.toFixed(arredondando);
+
+  document.getElementById('result').innerHTML = novoResultado;
   //Verifica se existe algum valor no 'result'
   if(resultado){
     //Ajusta o tamanho se necessário
     if(document.getElementById('result').innerHTML.length > 8){
       document.getElementById('result').style = "font-size:24px"
     }
-
-    //Verifica se o número é decimal ou não
-    /*
-    if(document.getElementById('result').innerHTML / 2 != 0){
-      if(document.getElementById('result').innerHTML.length > 8){
-        document.getElementById('result').innerHTML = eval(resultado).substring(0,13)
-      }
-    }
-    */
   }else{
     document.getElementById('result').innerHTML = "Nada...";
   }
   document.getElementById('counter').innerHTML = document.getElementById('result').innerHTML.length;
 }
+
+

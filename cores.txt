@@ -1,0 +1,5 @@
+#373739 - Cinza claro
+#19191a - Cinza mais escuro
+#020202 - Preto
+#60d4ez - Ciano
+#9ae5f3 - Ciano muito claro
